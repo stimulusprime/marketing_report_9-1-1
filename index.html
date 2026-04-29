@@ -1376,6 +1376,176 @@ footer .meta {
   margin: 0 0 28px 0;
 }
 .hero-lead b { color: var(--ink); font-weight: 700; }
+/* ============================================================
+   COMPREHENSIVE MOBILE FIXES
+   ============================================================ */
+@media (max-width: 720px) {
+  /* Prevent any horizontal scroll on the page */
+  html, body { max-width: 100vw; overflow-x: hidden; }
+  * { min-width: 0; }
+
+  /* Tighter container padding */
+  .container { padding: 0 16px; }
+
+  /* Nav: stack logo on top, tabs full-width below — guaranteed not to overflow */
+  .nav { padding-top: 0; }
+  .nav-inner {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 8px 14px;
+    gap: 8px;
+  }
+  .logo { gap: 10px; align-self: flex-start; }
+  .logo-img { height: 28px; }
+  .logo-text {
+    display: block;
+    font-size: 9px;
+    padding-left: 10px;
+    letter-spacing: 0.05em;
+  }
+  .tabs {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding: 3px;
+    border-radius: 10px;
+    justify-content: flex-start;
+  }
+  .tabs::-webkit-scrollbar { display: none; }
+  .tab {
+    padding: 8px 14px;
+    font-size: 11px;
+    flex-shrink: 0;
+  }
+
+  /* HERO */
+  .hero { padding: 96px 0 36px; min-height: 0; }
+  .hero h1 { font-size: 44px; line-height: 1.02; letter-spacing: -0.03em; }
+  .hero-title { font-size: 44px; line-height: 1.02; }
+  .hero-sub, .hero-lead { font-size: 14px; line-height: 1.55; }
+  .eyebrow { font-size: 10px; margin-bottom: 18px; }
+
+  /* HERO KPIs — compact 2-column with smaller text */
+  .hero-kpis { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  .hero-kpi { padding: 14px 12px; }
+  .hero-kpi .label { font-size: 9.5px; line-height: 1.3; }
+  .hero-kpi .value { font-size: 18px; }
+  .hero-kpi .delta { font-size: 11px; }
+
+  /* KPI grids in detailed sections */
+  .kpi-grid, .kpi-grid.mini, .stat-grid, .stat-grid.four {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+  .kpi-card, .stat-card { padding: 14px 12px; }
+  .kpi-label, .stat-label { font-size: 9.5px; line-height: 1.3; }
+  .kpi-value { font-size: 19px; }
+  .kpi-value.small { font-size: 16px; }
+  .stat-value { font-size: 17px; }
+  .kpi-sub, .stat-sub { font-size: 11px; }
+
+  /* Section heads */
+  .section-head h2 { font-size: 26px; line-height: 1.05; letter-spacing: -0.02em; }
+  .section-head .label { font-size: 10px; }
+  .responsible { font-size: 11px; }
+  .sub-h { font-size: 14px; margin: 22px 0 10px 0; }
+
+  /* Block padding tighter on mobile */
+  .block { padding: 32px 0; }
+
+  /* Tables — wrap with horizontal scroll, never overflow page */
+  .data-table-wrap {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    max-width: 100%;
+    border-radius: 8px;
+  }
+  .data-table { font-size: 11.5px; min-width: 480px; }
+  .data-table.small { font-size: 10.5px; min-width: 600px; }
+  .data-table th, .data-table td { padding: 8px 10px; }
+  .data-table.small th, .data-table.small td { padding: 6px 7px; }
+
+  /* Two-col blocks become single column */
+  .two-col, .three-col { grid-template-columns: 1fr; gap: 14px; }
+  .col-card { padding: 18px 16px; }
+  .col-card h3 { font-size: 15px; }
+
+  /* Extra grid */
+  .extra-grid { grid-template-columns: 1fr; gap: 12px; }
+  .extra-item, .insight-card { padding: 14px 16px; }
+  .extra-item h4, .insight-card h4 { font-size: 13px; }
+  .extra-item p, .insight-card p { font-size: 12.5px; }
+
+  /* Lists */
+  .list-rich li { font-size: 12.5px; padding: 8px 10px; }
+  .list-rich .li-num { font-size: 12px; }
+  .list-plain li { font-size: 12.5px; }
+  .plans-list { padding-left: 18px; }
+  .plans-list li { font-size: 12.5px; }
+
+  /* Prose */
+  .prose { font-size: 13.5px; }
+  .prose-note { font-size: 12.5px; padding: 10px 12px; }
+
+  /* Mini grid */
+  .mini-grid { grid-template-columns: repeat(2, 1fr); }
+  .mini-val { font-size: 15px; }
+
+  /* Rules card stacks */
+  .rules-card { grid-template-columns: 1fr; }
+  .rule-row.new { border-left: none; border-top: 1px solid var(--line); }
+  .rule-row { padding: 14px 16px; }
+
+  /* SUMMARY BLOCK — stack the headline pairs vertically */
+  .summary-headline {
+    flex-direction: column;
+    gap: 16px;
+    align-items: flex-start;
+    margin: 12px 0 22px 0;
+  }
+  .sum-pair {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+  .sum-num { font-size: 32px; }
+  .sum-label { font-size: 13px; }
+  .sum-delta { font-size: 12px; }
+  .summary-block .data-table { min-width: 520px; }
+  .summary-block .section-head h2 { font-size: 22px; }
+
+  /* Hero logo - hide on small mobile to save space */
+  .hero-logo { opacity: 0.10; right: -30%; width: 90vw; }
+
+  /* Chart cards */
+  .chart-card { padding: 16px; }
+  .chart-card h3 { font-size: 15px; }
+  .chart-canvas-wrap { height: 240px; }
+  .chart-canvas-wrap.tall { height: 280px; }
+
+  /* Subs split (SMM TikTok) */
+  .subs-split { grid-template-columns: 1fr; gap: 14px; }
+  .subs-hero { padding: 18px 16px; }
+  .subs-hero-value { font-size: 38px; }
+
+  /* Footer */
+  footer { padding: 24px 16px; font-size: 11px; }
+
+  /* Loyalty rows */
+  .loyalty-grid { grid-template-columns: 1fr; }
+
+  /* Channels grid */
+  .channels-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 420px) {
+  .container { padding: 0 14px; }
+  .hero h1, .hero-title { font-size: 38px; }
+  .section-head h2 { font-size: 22px; }
+  .kpi-value { font-size: 17px; }
+  .sum-num { font-size: 28px; }
+}
 
 </style>
 </head>
